@@ -7,6 +7,7 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Noto+Sans+SC:wght@300;400;500;700&amp;family=Playfair+Display:wght@400;500;600;700&amp;family=Noto+Serif+SC:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style id="ext-inline-css-import-0">
   /* ===== BASE ===== */
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -434,8 +435,8 @@
   /* ===== PROTOTYPE SECTION LAYOUT (force grid/flex) ===== */
   .proto-grid {
     display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 32px !important;
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
     width: 100% !important;
     min-width: 0 !important;
   }
@@ -468,8 +469,8 @@
   /* ===== ID-SPECIFIC OVERRIDES (maximum specificity) ===== */
   #prototype-grid {
     display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 32px !important;
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
     width: 100% !important;
     min-width: 0 !important;
   }
@@ -534,6 +535,159 @@
     .section-pad { padding: 60px 0; }
     .section-title { font-size: 28px; }
   }
+
+  /* ── 嵌入式手机原型面板（来自 app-prototype.html）── */
+  .proto-phones-row { display:flex; gap:20px; justify-content:flex-start; align-items:flex-start; padding:16px 40px 12px; overflow-x:auto; flex-wrap:nowrap; scrollbar-width: thin; scrollbar-color: #E2C47A #F5F0E0; }
+  .proto-phones-row::-webkit-scrollbar { height:10px; }
+  .proto-phones-row::-webkit-scrollbar-track { background:#F5F0E0; border-radius:5px; }
+  .proto-phones-row::-webkit-scrollbar-thumb { background:linear-gradient(90deg, #F0D878, #E8C850, #F0D878); border-radius:5px; border:1.5px solid rgba(255,252,245,0.7); }
+  .proto-phones-row::-webkit-scrollbar-thumb:hover { background:linear-gradient(90deg, #F5DF88, #E8C850, #F5DF88); }
+  .proto-phones-row::-webkit-scrollbar-button:single-button:start { width:14px;height:10px;background:#F0E8D0;border-radius:4px 0 0 4px;display:block;border-right:1px solid rgba(200,168,130,0.25);position:relative; }
+  .proto-phones-row::-webkit-scrollbar-button:single-button:end { width:14px;height:10px;background:#F0E8D0;border-radius:0 4px 4px 0;display:block;border-left:1px solid rgba(200,168,130,0.25);position:relative; }
+  .proto-phone-wrap { display:flex; flex-direction:column; align-items:center; gap:6px; flex-shrink:0; }
+  .proto-phone-label { font-family:'Noto Sans SC','PingFang SC',sans-serif; font-size:10px; letter-spacing:0.08em; color:#7A7570; text-transform:uppercase; }
+  .proto-phone { width:200px; height:433px; background:#F7F4EE; border-radius:30px; overflow:hidden; position:relative; box-shadow:0 0 0 6px #2A2A28, 0 0 0 7.5px #3A3A38, 0 8px 32px rgba(26,26,24,0.10), 0 18px 40px rgba(26,26,24,0.14); }
+  .proto-phone-inner { width:100%; height:100%; overflow:hidden; position:relative; background:#F7F4EE; }
+  /* Status Bar */
+  .proto-status-bar { display:flex; justify-content:space-between; align-items:center; padding:9px 15px 0; font-family:'Noto Sans SC','PingFang SC',sans-serif; font-size:8px; font-weight:600; color:#1A1A18; position:relative; z-index:10; }
+  .proto-status-bar .proto-notch { width:68px;height:19px; background:#1A1A18; border-radius:0 0 13px 13px; position:absolute;top:0;left:50%;transform:translateX(-50%); }
+  .proto-status-bar .proto-time { font-size:10px;font-weight:700;z-index:1; }
+  .proto-status-bar .proto-icons { display:flex;gap:3px;align-items:center;z-index:1; }
+  .proto-status-bar .proto-icons i { font-size:7px; }
+  /* Login screen */
+  .proto-screen-login { width:100%;height:100%; background:#F7F4EE; display:flex;flex-direction:column;overflow:hidden;position:relative; }
+  .proto-login-header { padding:28px 16px 14px; position:relative; }
+  .proto-login-back { width:22px;height:22px; background:#F0E8D0; border-radius:50%; display:flex;align-items:center;justify-content:center; color:#1A1A18; font-size:10px; margin-bottom:12px; }
+  .proto-login-header h1 { font-family:'Noto Serif SC',Georgia,serif; font-size:16px; font-weight:700; color:#1A1A18; line-height:1.3; }
+  .proto-login-header h1 em { font-style:normal; color:#C4973A; }
+  .proto-login-header p { font-size:8px; color:#7A7570; margin-top:4px; line-height:1.5; }
+  .proto-login-form { padding:0 16px; display:flex;flex-direction:column;gap:8px; flex:1; }
+  .proto-form-label { font-size:8px; font-weight:600; color:#7A7570; letter-spacing:0.04em; text-transform:uppercase; margin-bottom:3px; }
+  .proto-input { width:100%; background:#F0E8D0; border:1px solid transparent; border-radius:14px; padding:8px 10px; font-family:'Noto Sans SC',sans-serif; font-size:9px; color:#1A1A18; display:flex;align-items:center;gap:6px; }
+  .proto-input.focused { border-color:#C4973A; box-shadow:0 0 0 2px rgba(196,151,58,0.12); }
+  .proto-input input { background:none;border:none;outline:none;font-family:'Noto Sans SC',sans-serif;font-size:9px;color:#1A1A18;width:100%; }
+  .proto-forgot-link { text-align:right; font-size:8px; color:#C4973A; margin-top:-3px; }
+  .proto-login-footer { padding:12px 16px 20px; display:flex;flex-direction:column;gap:8px; }
+  .proto-btn-primary { width:100%; background:#1A1A18; color:#F7F4EE; border:none; border-radius:20px; padding:10px; font-family:'Noto Sans SC',sans-serif; font-size:10px; font-weight:600; display:flex;align-items:center;justify-content:center;gap:4px; cursor:pointer; }
+  .proto-btn-primary .proto-gold-arrow { color:#C4973A; font-size:9px; }
+  .proto-divider { display:flex;align-items:center;gap:8px; color:#B5B0AA; font-size:8px; margin:2px 0; }
+  .proto-divider::before,.proto-divider::after { content:'';flex:1;height:1px;background:rgba(200,168,130,0.3); }
+  .proto-social-row { display:flex;gap:8px; }
+  .proto-social-btn { flex:1; background:#F0E8D0; border:none; border-radius:14px; height:30px; display:flex;align-items:center;justify-content:center; gap:4px; font-family:'Noto Sans SC',sans-serif; font-size:8px; color:#1A1A18; cursor:pointer; }
+  .proto-register-link { text-align:center; font-size:9px; color:#7A7570; }
+  .proto-register-link span { color:#C4973A; font-weight:600; }
+  /* Register screen */
+  .proto-screen-register { width:100%;height:100%; background:#F7F4EE; display:flex;flex-direction:column;position:relative;overflow:hidden; }
+  .proto-reg-header { padding:24px 16px 12px; }
+  .proto-reg-header h1 { font-family:'Noto Serif SC',Georgia,serif; font-size:15px; font-weight:700; line-height:1.35; }
+  .proto-reg-header h1 span { color:#C4973A; }
+  .proto-reg-header p { font-size:8px; color:#7A7570; margin-top:4px; line-height:1.5; }
+  .proto-step-indicator { display:flex;gap:3px;align-items:center;margin-bottom:10px; }
+  .proto-step-dot { width:4px;height:4px;border-radius:50%;background:rgba(200,168,130,0.3); }
+  .proto-step-dot.active { width:12px;border-radius:2px;background:#C4973A; }
+  .proto-reg-form { padding:0 16px; display:flex;flex-direction:column;gap:7px; flex:1; overflow-y:auto; scrollbar-width:none; }
+  .proto-reg-form::-webkit-scrollbar{display:none;}
+  .proto-reg-footer { padding:10px 16px 22px; display:flex;flex-direction:column;gap:8px; }
+  .proto-agreement-row { display:flex;align-items:flex-start;gap:6px;font-size:8px;color:#7A7570;line-height:1.5; }
+  .proto-checkbox { width:11px;height:11px;border-radius:4px;border:1px solid #C8A882;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;background:#F0E8D0; }
+  .proto-checkbox.checked { background:#C4973A;border-color:#C4973A;color:white; }
+  .proto-agreement-row a { color:#C4973A; }
+  /* Home screen */
+  .proto-screen-home { width:100%;height:100%; background:#F7F4EE; display:flex;flex-direction:column;overflow:hidden;position:relative; }
+  .proto-home-header { padding:24px 12px 8px; display:flex;justify-content:space-between;align-items:flex-start; }
+  .proto-home-greeting { display:flex;flex-direction:column;gap:1px; }
+  .proto-home-greeting .greet-sub { font-size:7px; color:#B5B0AA; letter-spacing:0.02em; }
+  .proto-home-greeting .greet-name { font-family:'Noto Serif SC',Georgia,serif; font-size:15px; font-weight:700; color:#1A1A18; line-height:1.2; }
+  .proto-avatar-btn { width:24px;height:24px; background:#F0E8D0; border-radius:50%; border:1.5px solid #E2C47A; overflow:hidden; display:flex;align-items:center;justify-content:center; flex-shrink:0; }
+  .proto-home-scroll { flex:1; overflow-y:auto; padding:0 0 56px; scrollbar-width:none; }
+  .proto-home-scroll::-webkit-scrollbar{display:none;}
+  .proto-home-search { margin:1px 12px 8px; background:#F0E8D0; border:1px solid rgba(200,168,130,0.25); border-radius:16px; padding:7px 10px; display:flex;align-items:center;gap:5px; color:#B5B0AA; font-size:8px; }
+  .proto-home-search i { font-size:9px; color:#C8A882; }
+  .proto-daily-banner { margin:0 12px 10px; border-radius:14px; overflow:hidden; position:relative; height:86px; background:url('file:///C:/Users/34063/WorkBuddy/20260501101613/.workbuddy/artifacts/images/1.png') center/cover no-repeat; flex-shrink:0; }
+  .proto-banner-bg { position:absolute;inset:0; background:radial-gradient(ellipse at 70% 30%,rgba(210,170,100,0.18)0%,transparent 60%),radial-gradient(ellipse at 20% 80%,rgba(180,140,80,0.12)0%,transparent 50%); }
+  .proto-banner-label { position:absolute;top:10px;left:10px; font-size:7px; color:rgba(255,255,255,0.85); letter-spacing:0.08em; font-weight:500; text-shadow:0 1px 3px rgba(0,0,0,0.35); }
+  .proto-banner-title { position:absolute;bottom:10px;left:10px;right:46px; font-family:'Noto Serif SC',Georgia,serif; font-size:10px; font-weight:700; color:#fff; line-height:1.4; text-shadow:0 1px 4px rgba(0,0,0,0.45); }
+  .proto-banner-arrow { position:absolute;bottom:10px;right:10px; width:20px;height:20px; background:rgba(196,151,58,0.85); border-radius:50%; display:flex;align-items:center;justify-content:center; color:#fff; font-size:9px; }
+  .proto-section-header { display:flex;justify-content:space-between;align-items:center; padding:0 12px 8px; }
+  .proto-section-title { font-family:'Noto Serif SC',Georgia,serif; font-size:10px; font-weight:700; }
+  .proto-section-more { font-size:8px; color:#C4973A; display:flex;align-items:center;gap:2px; }
+  .proto-shortcut-row { display:flex;justify-content:space-between; padding:0 12px 12px; }
+  .proto-shortcut-item { display:flex;flex-direction:column;align-items:center;gap:4px; flex:1; }
+  .proto-shortcut-icon { width:30px;height:30px; background:#F0E8D0; border-radius:10px; display:flex;align-items:center;justify-content:center; font-size:12px; border:1px solid rgba(200,168,130,0.2); position:relative; }
+  .proto-shortcut-icon.active-icon { background:rgba(196,151,58,0.12); border-color:rgba(196,151,58,0.3); }
+  .proto-shortcut-icon .badge { position:absolute;top:-2px;right:-2px;width:8px;height:8px;background:#C4973A;border-radius:50%;border:1.5px solid #F7F4EE;display:flex;align-items:center;justify-content:center; font-size:5px; color:#fff; font-weight:700; }
+  .proto-shortcut-label { font-size:7px; color:#7A7570; }
+  .proto-recommend-list { padding:0 12px; display:flex;flex-direction:column;gap:6px; }
+  .proto-recommend-card { display:flex;gap:7px;align-items:center; background:rgba(240,232,208,0.45); border-radius:12px; padding:7px 9px; border:1px solid rgba(200,168,130,0.12); }
+  .proto-recommend-thumb { width:40px;height:40px; border-radius:9px; flex-shrink:0; overflow:hidden; display:flex;align-items:center;justify-content:center; }
+  .proto-recommend-thumb img { width:100%;height:100%;object-fit:cover;border-radius:9px; }
+  .proto-recommend-info { flex:1;min-width:0; }
+  .proto-recommend-tag { display:inline-block; font-size:7px; color:#C4973A; font-weight:600; letter-spacing:0.04em; margin-bottom:2px; }
+  .proto-recommend-title { font-size:9px; font-weight:600; line-height:1.35; margin-bottom:2px; white-space:nowrap;overflow:hidden;text-overflow:ellipsis; }
+  .proto-recommend-meta { font-size:7px; color:#B5B0AA; display:flex;align-items:center;gap:3px; }
+  .proto-recommend-meta .dot { color:#C8A882; }
+  /* Tab bar */
+  .proto-tab-bar { position:absolute; bottom:0;left:0;right:0; height:44px; background:rgba(247,244,238,0.98); backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px); border-top:1px solid rgba(200,168,130,0.2); border-radius:0 0 28px 28px; display:flex;justify-content:space-around;align-items:flex-start; padding-top:7px; z-index:20; }
+  .proto-tab-item { display:flex;flex-direction:column;align-items:center;gap:2px; color:#B5B0AA; font-size:6px; cursor:pointer; min-width:34px; }
+  .proto-tab-item.active { color:#C4973A; }
+  .proto-tab-item i { font-size:12px; }
+  .proto-tab-dot { width:3px;height:3px; border-radius:50%; background:#C4973A; margin-top:1px; }
+  .proto-plus-btn { width:30px;height:30px; background:#C4973A; border-radius:50%; display:flex;align-items:center;justify-content:center; margin-top:-14px; box-shadow:0 3px 10px rgba(196,151,58,0.35); border:2.5px solid #F7F4EE; }
+  .proto-plus-btn i { color:#fff; font-size:13px; font-weight:700; }
+
+  /* 每日一问 */
+  .proto-daily-q { margin:10px 12px 0; }
+  .proto-daily-q-header { display:flex;justify-content:space-between;align-items:center;margin-bottom:8px; }
+  .proto-daily-q-title { font-family:'Noto Serif SC',Georgia,serif; font-size:10px;font-weight:700;display:flex;align-items:center;gap:4px; }
+  .proto-daily-q-title i { color:#C4973A;font-size:11px; }
+  .proto-daily-q-badge { font-size:7px;color:#fff;background:linear-gradient(135deg,#C4973A,#D4AF37);padding:2px 7px;border-radius:10px;font-weight:600;letter-spacing:0.04em; }
+  .proto-daily-q-card { background:linear-gradient(135deg,rgba(196,151,58,0.08),rgba(212,175,55,0.05));border:1px solid rgba(196,151,58,0.15);border-radius:14px;padding:12px 14px;position:relative;overflow:hidden; }
+  .proto-daily-q-card::before { content:'';position:absolute;top:-15px;right:-10px;width:50px;height:50px;background:radial-gradient(circle,rgba(196,151,58,0.12),transparent 70%);border-radius:50%; }
+  .proto-daily-q-text { font-family:'Noto Sans SC',sans-serif;font-size:9px;font-weight:600;color:#1A1A18;line-height:1.55;margin-bottom:8px;position:relative;z-index:1; }
+  .proto-daily-q-footer { display:flex;justify-content:space-between;align-items:center; }
+  .proto-daily-q-tag { font-size:7px;color:#C4973A;background:rgba(196,151,58,0.1);padding:2px 8px;border-radius:8px;font-weight:500; }
+  .proto-daily-q-action { font-size:8px;color:#C4973A;font-weight:600;display:flex;align-items:center;gap:3px;cursor:pointer; }
+
+  /* ===== 边缘场景：网络不佳弹窗 ===== */
+  .proto-screen-offline { width:100%;height:100%; background:#F7F4EE; display:flex;flex-direction:column;position:relative;overflow:hidden; }
+  .proto-offline-overlay { position:absolute;inset:0; background:rgba(26,26,24,0.45); display:flex;align-items:center;justify-content:center;z-index:10;padding:24px; }
+  .proto-offline-card { width:100%;max-width:260px;background:#fff;border-radius:20px;padding:22px 16px 18px;text-align:center;box-shadow:0 12px 40px rgba(26,26,24,0.20); }
+  .proto-offline-img { margin-bottom:14px; }
+  .proto-offline-img img { width:140px;height:auto;border-radius:12px;display:block;margin:0 auto; }
+  .proto-wifi-icon { width:42px;height:42px;background:rgba(229,57,53,0.08);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px; position:relative; }
+  .proto-wifi-icon i { font-size:17px;color:#E53935; }
+  .proto-wifi-slash { position:absolute;width:20px;height:2px;background:#E53935;transform:rotate(-45deg);top:50%;left:50%;margin-left:-10px;margin-top:-1px;border-radius:1px; }
+  .proto-offline-title { font-family:'Noto Sans SC',sans-serif;font-size:14px;font-weight:600;color:#1A1A18;margin-bottom:6px;letter-spacing:0.02em; }
+  .proto-offline-sub { font-size:10px;color:#7A7570;line-height:1.65;margin-bottom:16px; }
+  .proto-offline-btns { display:flex;flex-direction:column;gap:8px; }
+  .proto-btn-black { width:100%;padding:10px 0;background:#1A1A18;color:#F7F4EE;border:none;border-radius:16px;font-size:10px;font-weight:500;font-family:'Noto Sans SC',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px; }
+  .proto-btn-black i { font-size:10px; }
+  .proto-btn-outline { width:100%;padding:9px 0;background:transparent;color:#1A1A18;border:1px solid rgba(26,26,24,0.12);border-radius:16px;font-size:10px;font-weight:500;font-family:'Noto Sans SC',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px; }
+  .proto-btn-outline i { font-size:10px;color:#7A7570; }
+
+  /* ===== 边缘场景：网络信号弱浮层 ===== */
+  .proto-screen-weaknet { width:100%;height:100%; background:#F7F4EE; display:flex;flex-direction:column;position:relative;overflow:hidden; }
+  .proto-weaknet-toast { position:absolute;bottom:16px;left:12px;right:12px;background:#fff;border-radius:18px;padding:14px 14px 12px;box-shadow:0 8px 28px rgba(26,26,24,0.15);z-index:10; }
+  .proto-weaknet-header { display:flex;align-items:flex-start;gap:8px;margin-bottom:4px; }
+  .proto-weaknet-header i { font-size:14px;color:#C4973A;margin-top:1px;flex-shrink:0; }
+  .proto-weaknet-title { font-size:11px;font-weight:600;color:#1A1A18;line-height:1.35; }
+  .proto-weaknet-desc { font-size:9px;color:#7A7570;margin-top:1px; }
+  .proto-weaknet-progress { margin:12px 0 10px; }
+  .proto-progress-info { display:flex;justify-content:space-between;align-items:center;margin-bottom:4px; }
+  .proto-progress-label { font-size:8px;color:#B5B0AA; }
+  .proto-progress-value { font-size:10px;font-weight:600;color:#C4973A; }
+  .proto-progress-track { width:100%;height:3px;background:#F0EBE3;border-radius:2px;overflow:hidden; }
+  .proto-progress-bar { height:100%;background:#C4973A;border-radius:2px;width:47%; }
+  .proto-weaknet-actions { display:flex;gap:8px;margin-bottom:8px; }
+  .proto-weaknet-btn { flex:1;padding:9px 0;border-radius:14px;font-size:9px;font-weight:500;font-family:'Noto Sans SC',sans-serif;cursor:pointer;text-align:center; }
+  .proto-weaknet-btn.ghost { background:transparent;color:#1A1A18;border:1px solid rgba(26,26,24,0.12); }
+  .proto-weaknet-btn.gold { background:#C4973A;color:#fff;border:none; }
+  .proto-weaknet-footer { font-size:7px;color:#B5B0AA;text-align:center;letter-spacing:0.02em; }
+
+  /* ===== 边缘场景：隐私协议确认（插画原稿） ===== */
+  .proto-screen-privacy { width:100%;height:100%; background:#F7F4EE; display:flex;flex-direction:column;position:relative;overflow:hidden; }
+  .proto-privacy-body { flex:1;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:6px 4px 4px; }
+  .proto-privacy-body img { width:100%;height:100%;object-fit:contain;object-position:center center; }
 
 </style>
 <style id="ext-inline-css-import-1">*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.bottom-8{bottom:2rem}.left-0{left:0px}.left-0\.5{left:0.125rem}.left-1\/2{left:50%}.right-0{right:0px}.right-0\.5{right:0.125rem}.right-\[5\%\]{right:5%}.top-0{top:0px}.top-0\.5{top:0.125rem}.top-\[38\%\]{top:38%}.z-10{z-index:10}.z-50{z-index:50}.z-\[1\]{z-index:1}.z-\[3\]{z-index:3}.order-1{order:1}.order-2{order:2}.col-span-2{grid-column:span 2 / span 2}.m-4{margin:1rem}.mx-auto{margin-left:auto;margin-right:auto}.my-6{margin-top:1.5rem;margin-bottom:1.5rem}.mb-1{margin-bottom:0.25rem}.mb-1\.5{margin-bottom:0.375rem}.mb-10{margin-bottom:2.5rem}.mb-14{margin-bottom:3.5rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-2\.5{margin-bottom:0.625rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-3{margin-left:0.75rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-12{margin-top:3rem}.mt-14{margin-top:3.5rem}.mt-16{margin-top:4rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-1\.5{height:0.375rem}.h-14{height:3.5rem}.h-16{height:4rem}.h-2{height:0.5rem}.h-3{height:0.75rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-7{height:1.75rem}.h-9{height:2.25rem}.h-\[480px\]{height:480px}.h-full{height:100%}.min-h-\[320px\]{min-height:320px}.min-h-screen{min-height:100vh}.w-1\.5{width:0.375rem}.w-12{width:3rem}.w-16{width:4rem}.w-24{width:6rem}.w-3{width:0.75rem}.w-3\/4{width:75%}.w-5{width:1.25rem}.w-7{width:1.75rem}.w-9{width:2.25rem}.w-\[220px\]{width:220px}.w-\[380px\]{width:380px}.w-fit{width:-moz-fit-content;width:fit-content}.w-full{width:100%}.max-w-\[1280px\]{max-width:1280px}.max-w-\[560px\]{max-width:560px}.max-w-\[720px\]{max-width:720px}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes bounce{0%, 100%{transform:translateY(-25%);animation-timing-function:cubic-bezier(0.8,0,1,1)}50%{transform:none;animation-timing-function:cubic-bezier(0,0,0.2,1)}}.animate-bounce{animation:bounce 1s infinite}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.items-stretch{align-items:stretch}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-12{gap:3rem}.gap-16{gap:4rem}.gap-2{gap:0.5rem}.gap-20{gap:5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-1\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.375rem * var(--tw-space-y-reverse))}.space-y-10 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-8{border-width:8px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.\!border-white\/20{border-color:rgb(255 255 255 / 0.2) !important}.border-gold\/40{border-color:rgb(184 150 14 / 0.4)}.border-gray-100{--tw-border-opacity:1;border-color:rgb(243 244 246 / var(--tw-border-opacity, 1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1))}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.\!bg-transparent{background-color:transparent !important}.bg-charcoal{--tw-bg-opacity:1;background-color:rgb(26 26 26 / var(--tw-bg-opacity, 1))}.bg-gold{--tw-bg-opacity:1;background-color:rgb(184 150 14 / var(--tw-bg-opacity, 1))}.bg-gold\/20{background-color:rgb(184 150 14 / 0.2)}.bg-gold\/5{background-color:rgb(184 150 14 / 0.05)}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.bg-gray-200{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-white\/60{--tw-gradient-from:rgb(255 255 255 / 0.6) var(--tw-gradient-from-position);--tw-gradient-to:rgb(255 255 255 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:rgb(0 0 0 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-7{padding:1.75rem}.p-8{padding:2rem}.\!px-5{padding-left:1.25rem !important;padding-right:1.25rem !important}.\!py-3{padding-top:0.75rem !important;padding-bottom:0.75rem !important}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.pb-2{padding-bottom:0.5rem}.pt-2{padding-top:0.5rem}.pt-20{padding-top:5rem}.pt-3{padding-top:0.75rem}.pt-5{padding-top:1.25rem}.pt-8{padding-top:2rem}.text-center{text-align:center}.font-serif{font-family:"Playfair Display", "Noto Serif SC", Georgia, serif}.\!text-xs{font-size:0.75rem !important;line-height:1rem !important}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[15px\]{font-size:15px}.text-\[8px\]{font-size:8px}.text-\[9px\]{font-size:9px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-\[1\.1\]{line-height:1.1}.leading-relaxed{line-height:1.625}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.\!text-white{--tw-text-opacity:1 !important;color:rgb(255 255 255 / var(--tw-text-opacity, 1)) !important}.text-charcoal{--tw-text-opacity:1;color:rgb(26 26 26 / var(--tw-text-opacity, 1))}.text-gold{--tw-text-opacity:1;color:rgb(184 150 14 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-green-600{--tw-text-opacity:1;color:rgb(22 163 74 / var(--tw-text-opacity, 1))}.text-lightGray{--tw-text-opacity:1;color:rgb(168 168 168 / var(--tw-text-opacity, 1))}.text-muted{--tw-text-opacity:1;color:rgb(140 140 140 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.decoration-gold\/30{-webkit-text-decoration-color:rgb(184 150 14 / 0.3);text-decoration-color:rgb(184 150 14 / 0.3)}.underline-offset-4{text-underline-offset:4px}.shadow{--tw-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.hover\:\!border-gold:hover{--tw-border-opacity:1 !important;border-color:rgb(184 150 14 / var(--tw-border-opacity, 1)) !important}.hover\:\!bg-gold:hover{--tw-bg-opacity:1 !important;background-color:rgb(184 150 14 / var(--tw-bg-opacity, 1)) !important}.hover\:\!text-charcoal:hover{--tw-text-opacity:1 !important;color:rgb(26 26 26 / var(--tw-text-opacity, 1)) !important}.hover\:text-gold-light:hover{--tw-text-opacity:1;color:rgb(212 175 55 / var(--tw-text-opacity, 1))}.hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}.focus\:ring-1:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-gold\/30:focus{--tw-ring-color:rgb(184 150 14 / 0.3)}.group:hover .group-hover\:scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (min-width: 640px){.sm\:flex-row{flex-direction:row}}@media (min-width: 768px){.md\:mt-0{margin-top:0px}.md\:flex{display:flex}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:items-end{align-items:flex-end}.md\:justify-between{justify-content:space-between}.md\:text-right{text-align:right}}@media (min-width: 1024px){.lg\:right-\[12\%\]{right:12%}.lg\:top-\[42\%\]{top:42%}.lg\:order-1{order:1}.lg\:order-2{order:2}.lg\:flex{display:flex}.lg\:hidden{display:none}.lg\:h-20{height:5rem}.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:flex-row{flex-direction:row}.lg\:gap-10{gap:2.5rem}.lg\:gap-16{gap:4rem}.lg\:gap-20{gap:5rem}.lg\:gap-28{gap:7rem}.lg\:gap-3{gap:0.75rem}.lg\:p-10{padding:2.5rem}.lg\:px-10{padding-left:2.5rem;padding-right:2.5rem}.lg\:text-4xl{font-size:2.25rem;line-height:2.5rem}.lg\:text-lg{font-size:1.125rem;line-height:1.75rem}}</style>
@@ -2260,109 +2414,215 @@ body {
             <div class="mockup-header">
               <div class="mockup-dot c48189"></div>
               <div class="mockup-dot c48199"></div>
-              <div class="mockup-dot c48208"></div><span class="ml-3 text-[10px] text-muted">注册登录流程</span>
-            </div><!-- Main mockup + edge case scenarios: side-by-side row (using table for reliability) -->
-            <table id="prototype-inner-row" class="c48269">
-              <tbody>
-                <tr><!-- Left: Main registration flow mockup -->
-                  <td class="proto-mockup-col c48287"><!-- Mock phone screen -->
-                    <div class="mx-auto w-[220px] rounded-2xl border-8 overflow-hidden shadow-lg c48300">
-                      <div class="bg-charcoal text-white text-center py-2 text-xs">创建账户</div>
-                      <div class="p-4 space-y-3">
-                        <div><label class="text-[9px] text-gray-400 block mb-1">手机号 / 邮箱</label>
-                          <div class="h-6 rounded bg-gray-50 border border-gray-200"></div>
-                        </div>
-                        <div><label class="text-[9px] text-gray-400 block mb-1">设置密码</label>
-                          <div class="h-6 rounded bg-gray-50 border border-gray-200"></div>
-                          <!-- Password Strength Indicator -->
-                          <div class="flex gap-1 mt-1.5">
-                            <div class="h-0.5 flex-1 rounded-full bg-red-400"></div>
-                            <div class="h-0.5 flex-1 rounded-full bg-gray-200"></div>
-                            <div class="h-0.5 flex-1 rounded-full bg-gray-200"></div>
-                          </div>
-                          <div class="text-[7px] text-red-400 mt-0.5">弱 · 密码强度不足</div>
-                        </div><!-- OTP Step -->
-                        <div class="pt-2 border-t border-gray-100">
-                          <div class="text-[9px] text-gray-400 mb-2">验证码已发送至您的手机</div>
-                          <div class="flex gap-2">
-                            <div class="flex-1 h-9 rounded border border-gray-200 flex items-center justify-center text-sm font-bold text-charcoal">
-                              4</div>
-                            <div class="flex-1 h-9 rounded border border-gray-200 flex items-center justify-center text-sm font-bold text-charcoal">
-                              2</div>
-                            <div class="flex-1 h-9 rounded border border-gold/40 bg-gold/5 flex items-center justify-center text-sm font-bold text-gold">
-                              8</div>
-                            <div class="flex-1 h-9 rounded border border-gray-200 flex items-center justify-center text-sm font-bold text-charcoal">
-                              -</div>
-                          </div>
-                        </div><button class="w-full h-7 rounded-full bg-charcoal text-white text-[9px] mt-2">完成注册</button>
-                        <div class="text-center text-[8px] text-gray-300">已有账号？立即登录 →</div>
+              <div class="mockup-dot c48208"></div><span class="ml-3 text-[10px] text-muted">原型图展示</span>
+            </div>
+            <!-- 三个手机面板：登录 / 注册 / 主页 -->
+            <div class="proto-phones-row">
+              <!-- 手机1：登录页 -->
+              <div class="proto-phone-wrap">
+                <div class="proto-phone">
+                  <div class="proto-phone-inner proto-screen-login">
+                    <div class="proto-status-bar"><div class="proto-notch"></div><span class="proto-time">9:41</span><div class="proto-icons"><i class="fas fa-wifi"></i><i class="fas fa-battery-full"></i></div></div>
+                    <div class="proto-login-header">
+                      <div class="proto-login-back"><i class="fas fa-arrow-left"></i></div>
+                      <h1>欢迎回来，<em>猫崽子</em><br>请先登录 ✦</h1>
+                      <p>世界不过是一只猫，在玩澳大利亚</p>
+                      <img src="file:///C:/Users/34063/WorkBuddy/20260501101613/.workbuddy/artifacts/images/9.png" style="position:absolute;right:12px;bottom:16px;width:48px;height:auto;opacity:0.75;pointer-events:none;">
+                    </div>
+                    <div class="proto-login-form">
+                      <div><div class="proto-form-label">邮箱 / 手机号</div><div class="proto-input focused"><i class="fas fa-envelope" style="color:#C4973A;font-size:9px;"></i><input type="text" value="wbh@example.com"></div></div>
+                      <div><div class="proto-form-label">密码</div><div class="proto-input"><i class="fas fa-lock" style="color:#C8A882;font-size:9px;"></i><input type="password" value="••••••••"><i class="fas fa-eye-slash" style="color:#B5B0AA;font-size:8px;margin-left:auto;"></i></div></div>
+                      <div class="proto-forgot-link">忘记密码？</div>
+                    </div>
+                    <div class="proto-login-footer">
+                      <button class="proto-btn-primary">登录<span class="proto-gold-arrow"><i class="fas fa-arrow-right"></i></span></button>
+                      <div class="proto-divider">或使用以下方式</div>
+                      <div class="proto-social-row">
+                        <button class="proto-social-btn"><i class="fab fa-weixin" style="color:#07C160;font-size:11px;"></i>微信登录</button>
+                        <button class="proto-social-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" fill="#1677FF"/></svg>手机验证码</button>
                       </div>
-                    </div><!-- End: Main registration mockup -->
-                  </td><!-- Right: Edge Case Scenarios -->
-                  <td class="proto-edge-col c48686">
-                    <div class="c48690"><!-- Edge Case 1: Network Error / Timeout -->
-                      <div class="rounded-xl border overflow-hidden bg-white c48702">
-                        <div class="bg-red-50 px-3 py-1 flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-3 h-3 text-red-500">
-                            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z">
-                            </path>
-                            <line x1="12" y1="9" x2="12" y2="13"></line>
-                            <circle cx="12" cy="16" r="1" fill="currentColor" stroke="none"></circle>
-                          </svg><span class="text-[9px] font-medium text-red-600">网络异常 · 请求超时</span></div>
-                        <div class="p-2.5 space-y-1.5"><!-- Error input with shake animation -->
-                          <div class="h-4 rounded border-2 border-dashed border-red-300 bg-red-50/30 flex items-center px-1.5 error-shake">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="w-2.5 h-2.5 text-red-400 mr-1">
-                              <circle cx="12" cy="12" r="10"></circle>
-                              <line x1="12" y1="8" x2="12" y2="12"></line>
-                              <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                            </svg><span class="text-[7px] text-red-500 font-medium">网络连接异常，请检查网络设置</span></div>
-                          <div class="text-[8px] text-red-500 text-center font-medium">连接服务器失败，请检查网络后重试</div>
-                          <div class="flex gap-1.5 justify-center">
-                            <div class="h-4 rounded-full bg-red-100 text-[7px] text-red-600 flex items-center justify-center px-2 hover:bg-red-200 transition-colors cursor-default">
-                              重试</div>
-                            <div class="h-4 rounded-full border text-[7px] text-gray-400 flex items-center justify-center px-2 hover:border-gray-300 transition-colors cursor-default c48907">
-                              取消</div>
-                          </div>
+                      <div class="proto-register-link">还没有账号？<span>立即注册 →</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="proto-phone-label">登录页</div>
+              </div>
+
+              <!-- 手机2：注册页 -->
+              <div class="proto-phone-wrap">
+                <div class="proto-phone">
+                  <div class="proto-phone-inner proto-screen-register">
+                    <div class="proto-status-bar"><div class="proto-notch"></div><span class="proto-time">9:41</span><div class="proto-icons"><i class="fas fa-wifi"></i><i class="fas fa-battery-full"></i></div></div>
+                    <div class="proto-reg-header">
+                      <div style="margin-bottom:10px;"><div class="proto-login-back"><i class="fas fa-arrow-left"></i></div></div>
+                      <div class="proto-step-indicator"><div class="proto-step-dot active"></div><div class="proto-step-dot"></div><div class="proto-step-dot"></div></div>
+                      <h1>创建你的<span>专属账号</span><br>加入地球猫猫教</h1>
+                      <p>只需四步，接受世界是巨大猫猫的真相</p>
+                    </div>
+                    <div class="proto-reg-form">
+                      <div><div class="proto-form-label">昵称</div><div class="proto-input"><i class="fas fa-user" style="color:#C8A882;font-size:9px;"></i><input type="text" placeholder="地球猫猫教教徒12305"></div></div>
+                      <div><div class="proto-form-label">邮箱</div><div class="proto-input focused"><i class="fas fa-envelope" style="color:#C4973A;font-size:9px;"></i><input type="email" placeholder="example@email.com"></div></div>
+                      <div><div class="proto-form-label">手机号</div><div class="proto-input"><div style="display:flex;align-items:center;gap:3px;color:#7A7570;font-size:8px;border-right:1px solid rgba(200,168,130,0.3);padding-right:6px;margin-right:1px;"><span>+86</span><i class="fas fa-chevron-down" style="font-size:6px;"></i></div><input type="tel" placeholder="请输入手机号"></div></div>
+                      <div><div class="proto-form-label">验证码</div><div class="proto-input" style="padding-right:6px;"><i class="fas fa-shield-halved" style="color:#C8A882;font-size:9px;"></i><input type="text" placeholder="6位验证码" style="flex:1;"><button style="background:#C4973A;color:#fff;border:none;border-radius:8px;padding:4px 8px;font-size:7px;font-weight:600;cursor:pointer;flex-shrink:0;">发送验证码</button></div></div>
+                      <div><div class="proto-form-label">设置密码</div><div class="proto-input"><i class="fas fa-key" style="color:#C8A882;font-size:9px;"></i><input type="password" placeholder="至少8位，含字母和数字"><i class="fas fa-eye-slash" style="color:#B5B0AA;font-size:8px;margin-left:auto;"></i></div></div>
+                    </div>
+                    <div class="proto-reg-footer">
+                      <div class="proto-agreement-row"><div class="proto-checkbox checked"><i class="fas fa-check" style="font-size:6px;"></i></div><span>我已阅读并同意 <a>《用户服务协议》</a> 及 <a>《隐私政策》</a></span></div>
+                      <button class="proto-btn-primary">下一步<span class="proto-gold-arrow"><i class="fas fa-arrow-right"></i></span></button>
+                      <div class="proto-register-link" style="font-size:9px;">已有账号？<span>直接登录</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="proto-phone-label">注册页</div>
+              </div>
+
+              <!-- 手机3：主页 -->
+              <div class="proto-phone-wrap">
+                <div class="proto-phone">
+                  <div class="proto-phone-inner proto-screen-home">
+                    <div class="proto-status-bar"><div class="proto-notch"></div><span class="proto-time">9:41</span><div class="proto-icons"><i class="fas fa-wifi"></i><i class="fas fa-battery-half"></i></div></div>
+                    <div class="proto-home-header">
+                      <div class="proto-home-greeting"><span class="greet-sub">早上好</span><span class="greet-name">地球猫猫教</span></div>
+                      <div style="display:flex;gap:6px;align-items:center;">
+                        <div style="position:relative;"><div style="width:22px;height:22px;background:#F0E8D0;border-radius:50%;border:1px solid rgba(200,168,130,0.25);display:flex;align-items:center;justify-content:center;color:#1A1A18;font-size:10px;"><i class="fas fa-bell"></i></div><div style="position:absolute;top:1px;right:1px;width:5px;height:5px;background:#C4973A;border-radius:50%;border:1px solid #F7F4EE;"></div></div>
+                        <div class="proto-avatar-btn"><img src="file:///C:/Users/34063/WorkBuddy/20260501101613/.workbuddy/artifacts/images/2.png" style="width:100%;height:100%;object-fit:cover;"></div>
+                      </div>
+                    </div>
+                    <div class="proto-home-scroll">
+                      <div class="proto-home-search"><i class="fas fa-magnifying-glass"></i><span>搜索内容、猫咪知识…</span></div>
+                      <div class="proto-daily-banner">
+                        <div class="proto-banner-bg"></div>
+                        <div class="proto-banner-label">今日感悟</div>
+                        <div class="proto-banner-title">慢生活，<br>从一只热猫开始</div>
+                        <div class="proto-banner-arrow"><i class="fas fa-arrow-right"></i></div>
+                      </div>
+                      <div class="proto-section-header"><div class="proto-section-title">快捷入口</div><div class="proto-section-more">查看全部 <i class="fas fa-chevron-right" style="font-size:6px;"></i></div></div>
+                      <div class="proto-shortcut-row">
+                        <div class="proto-shortcut-item"><div class="proto-shortcut-icon"><i class="fas fa-heart" style="color:#D08070;"></i></div><span class="proto-shortcut-label">收藏</span></div>
+                        <div class="proto-shortcut-item"><div class="proto-shortcut-icon active-icon"><i class="fas fa-book-open" style="color:#C4973A;"></i><div class="badge">3</div></div><span class="proto-shortcut-label" style="color:#C4973A;font-weight:600;">笔记</span></div>
+                        <div class="proto-shortcut-item"><div class="proto-shortcut-icon"><i class="fas fa-calendar-days" style="color:#7A9A6A;"></i></div><span class="proto-shortcut-label">日程</span></div>
+                        <div class="proto-shortcut-item"><div class="proto-shortcut-icon"><i class="fas fa-comment-dots" style="color:#C8A882;"></i></div><span class="proto-shortcut-label">消息</span></div>
+                      </div>
+                      <div class="proto-section-header" style="padding-top:2px;"><div class="proto-section-title">为你推荐</div><div class="proto-section-more">换一换 <i class="fas fa-rotate" style="font-size:6px;"></i></div></div>
+                      <div class="proto-recommend-list">
+                        <div class="proto-recommend-card"><div class="proto-recommend-thumb"><img src="file:///C:/Users/34063/WorkBuddy/20260501101613/.workbuddy/artifacts/images/3.png"></div><div class="proto-recommend-info"><span class="proto-recommend-tag">猫咪知识</span><div class="proto-recommend-title">猫咪为什么喜欢钻纸箱？</div><div class="proto-recommend-meta"><span>行为学</span><span class="dot">·</span><span>阅读 3 分钟</span></div></div></div>
+                        <div class="proto-recommend-card"><div class="proto-recommend-thumb"><img src="file:///C:/Users/34063/WorkBuddy/20260501101613/.workbuddy/artifacts/images/4.png"></div><div class="proto-recommend-info"><span class="proto-recommend-tag">生活方式</span><div class="proto-recommend-title">打造你的专属慢生活仪式感</div><div class="proto-recommend-meta"><span>生活</span><span class="dot">·</span><span>阅读 5 分钟</span></div></div></div>
+                        <div class="proto-recommend-card"><div class="proto-recommend-thumb"><img src="file:///C:/Users/34063/WorkBuddy/20260501101613/.workbuddy/artifacts/images/5.png"></div><div class="proto-recommend-info"><span class="proto-recommend-tag">每日一文</span><div class="proto-recommend-title">给自己一段安静的早晨时光</div><div class="proto-recommend-meta"><span>随笔</span><span class="dot">·</span><span>阅读 2 分钟</span></div></div></div>
+                      </div>
+                      <div class="proto-daily-q">
+                        <div class="proto-daily-q-header">
+                          <div class="proto-daily-q-title"><i class="fas fa-lightbulb"></i> 每日一问</div>
+                          <span class="proto-daily-q-badge">Day 12</span>
                         </div>
-                      </div><!-- Edge Case 2: Weak Network Loading -->
-                      <div class="rounded-xl border overflow-hidden bg-white c48959">
-                        <div class="bg-amber-50 px-3 py-1 flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-3 h-3 text-amber-500">
-                            <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83">
-                            </path>
-                            <circle cx="12" cy="12" r="4"></circle>
-                          </svg><span class="text-[9px] font-medium text-amber-700">弱网环境 · 加载中</span></div>
-                        <div class="p-2.5 space-y-1.5">
-                          <div class="space-y-1">
-                            <div class="h-2.5 w-full rounded skeleton-shimmer"></div>
-                            <div class="h-2.5 w-3/4 rounded skeleton-shimmer"></div>
-                            <div class="h-2.5 w-1/2 rounded skeleton-shimmer"></div>
+                        <div class="proto-daily-q-card">
+                          <div class="proto-daily-q-text">今天你的猫咪做了什么让你忍不住想拍照分享的事？</div>
+                          <div class="proto-daily-q-footer">
+                            <span class="proto-daily-q-tag"># 随手拍猫</span>
+                            <span class="proto-daily-q-action">去回答 <i class="fas fa-chevron-right" style="font-size:6px;"></i></span>
                           </div>
-                          <div class="flex items-center gap-1.5 mt-1"><svg viewBox="0 0 24 24" fill="none" class="animate-spin h-3 w-3 text-gold">
-                              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" opacity=".25">
-                              </circle>
-                              <path d="M4 12a8 8 0 018-8" stroke="currentColor" stroke-width="3"></path>
-                            </svg><span class="text-[7px] text-gray-400">正在验证，剩余 3 秒…</span></div>
-                        </div>
-                      </div><!-- Edge Case 3: Privacy Policy Confirmation -->
-                      <div class="rounded-xl border overflow-hidden bg-white c49138">
-                        <div class="bg-blue-50 px-3 py-1 flex items-center gap-1.5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-3 h-3 text-blue-500">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                          </svg><span class="text-[9px] font-medium text-blue-600">隐私协议确认</span></div>
-                        <div class="p-2.5 space-y-1.5">
-                          <div class="text-[8px] text-charcoal leading-relaxed">注册即表示您同意<span class="c49204">《用户服务协议》</span>与<span class="c49231">《隐私政策》</span>，包括我们如何收集、使用您的个人信息。</div>
-                          <div class="flex items-center gap-1.5">
-                            <div class="w-3 h-3 rounded-sm border flex items-center justify-center c49279"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2" class="w-2 h-2 text-white">
-                                <path d="M2 5l2 2l4-4"></path>
-                              </svg></div><span class="text-[7px] text-muted">我已阅读并同意以上条款</span>
-                          </div>
-                          <div class="h-4 rounded-full bg-charcoal text-white text-[7px] flex items-center justify-center">
-                            同意并继续</div>
                         </div>
                       </div>
                     </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                    <div class="proto-tab-bar">
+                      <div class="proto-tab-item active"><i class="fas fa-house"></i><span>主页</span><div class="proto-tab-dot"></div></div>
+                      <div class="proto-tab-item"><i class="fas fa-compass"></i><span>发现</span></div>
+                      <div class="proto-tab-item"><div class="proto-plus-btn"><i class="fas fa-plus"></i></div></div>
+                      <div class="proto-tab-item"><i class="fas fa-bookmark"></i><span>收藏</span></div>
+                      <div class="proto-tab-item"><i class="fas fa-user"></i><span>我的</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="proto-phone-label">主页</div>
+              </div>
+
+              <!-- 手机4：网络不佳弹窗 -->
+              <div class="proto-phone-wrap">
+                <div class="proto-phone">
+                  <div class="proto-phone-inner proto-screen-offline">
+                    <div class="proto-status-bar">
+                      <div class="proto-notch"></div>
+                      <span class="proto-time">9:41</span>
+                      <div class="proto-icons"><i class="fas fa-wifi" style="color:#E53935;"></i><i class="fas fa-battery-full"></i></div>
+                    </div>
+                    <!-- 弹窗遮罩 -->
+                    <div class="proto-offline-overlay">
+                      <div class="proto-offline-card">
+                        <div class="proto-offline-img">
+                          <img src="file:///C:/Users/34063/WorkBuddy/20260501101613/.workbuddy/artifacts/images/10.jpg" alt="">
+                        </div>
+                        <div class="proto-wifi-icon">
+                          <i class="fas fa-wifi"></i>
+                          <div class="proto-wifi-slash"></div>
+                        </div>
+                        <div class="proto-offline-title">网络连接失败</div>
+                        <div class="proto-offline-sub">请检查您的网络连接<br>稍后再试或切换网络</div>
+                        <div class="proto-offline-btns">
+                          <button class="proto-btn-black"><i class="fas fa-rotate-right"></i>重新连接</button>
+                          <button class="proto-btn-outline"><i class="fas fa-gear" style="color:#7A7570;font-size:10px;"></i>前往网络设置</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="proto-phone-label">网络不佳弹窗</div>
+              </div>
+
+              <!-- 手机5：网络信号弱浮层 -->
+              <div class="proto-phone-wrap">
+                <div class="proto-phone">
+                  <div class="proto-phone-inner proto-screen-weaknet">
+                    <div class="proto-status-bar">
+                      <div class="proto-notch"></div>
+                      <span class="proto-time">9:41</span>
+                      <div class="proto-icons">
+                        <i class="fas fa-wifi" style="color:#E53935;"></i><i class="fas fa-battery-full"></i>
+                      </div>
+                    </div>
+                    <!-- 底部浮层卡片 -->
+                    <div class="proto-weaknet-toast">
+                      <div class="proto-weaknet-header">
+                        <i class="fas fa-triangle-exclamation"></i>
+                        <div>
+                          <div class="proto-weaknet-title">当前网络信号较弱</div>
+                          <div class="proto-weaknet-desc">部分内容可能加载较慢</div>
+                        </div>
+                      </div>
+                      <div class="proto-weaknet-progress">
+                        <div class="proto-progress-info">
+                          <span class="proto-progress-label">加载进度</span>
+                          <span class="proto-progress-value">47%</span>
+                        </div>
+                        <div class="proto-progress-track"><div class="proto-progress-bar"></div></div>
+                      </div>
+                      <div class="proto-weaknet-actions">
+                        <div class="proto-weaknet-btn ghost">继续等待</div>
+                        <div class="proto-weaknet-btn gold">切换网络</div>
+                      </div>
+                      <div class="proto-weaknet-footer">已自动切换至低画质模式以节省流量</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="proto-phone-label">网络信号弱浮层</div>
+              </div>
+
+              <!-- 手机6：隐私协议（插画原稿） -->
+              <div class="proto-phone-wrap">
+                <div class="proto-phone">
+                  <div class="proto-phone-inner proto-screen-privacy">
+                    <div class="proto-status-bar">
+                      <div class="proto-notch"></div>
+                      <span class="proto-time">9:41</span>
+                      <div class="proto-icons"><i class="fas fa-wifi"></i><i class="fas fa-battery-full"></i></div>
+                    </div>
+                    <div class="proto-privacy-body">
+                      <img src="file:///C:/Users/34063/WorkBuddy/20260501101613/.workbuddy/artifacts/images/12.png" alt="隐私协议确认">
+                    </div>
+                  </div>
+                </div>
+                <div class="proto-phone-label">隐私协议（插画原稿）</div>
+              </div>
+
+            </div>
           </div>
           <div class="p-6 pt-3">
             <h3 class="font-serif text-lg font-semibold text-charcoal mb-1.5">高保真交互原型：注册登录全流程重构</h3>
@@ -2384,56 +2644,98 @@ body {
             </div>
             <div class="p-5">
               <div class="grid grid-cols-2 gap-3"><!-- Component samples -->
-                <div class="p-3 rounded-xl bg-white border c49718">
-                  <div class="text-[9px] text-gray-400 mb-2">Buttons 按钮</div>
-                  <div class="space-y-1.5">
-                    <div class="h-5 rounded-full bg-charcoal text-white text-[8px] flex items-center justify-center px-3 w-fit">
-                      Primary</div>
-                    <div class="h-5 rounded-full border text-[8px] flex items-center justify-center px-3 w-fit c49761">
-                      Secondary</div>
-                    <div class="h-5 rounded-full text-white text-[8px] flex items-center justify-center px-3 w-fit c49779">
-                      Accent Gold</div>
+                <!-- Buttons 按钮 -->
+                <div class="p-3.5 rounded-xl bg-white border border-gray-100 shadow-sm" style="border-radius:16px;">
+                  <div class="text-[9px] text-gray-400 mb-2.5 font-medium tracking-wide">Buttons 按钮</div>
+                  <div class="space-y-2 flex flex-col items-start">
+                    <button class="px-4 py-1.5 rounded-full text-[8px] font-semibold text-white" style="background:#1A1A18;border-radius:999px;letter-spacing:0.02em;">Primary</button>
+                    <button class="px-4 py-1.5 rounded-full text-[8px] font-medium" style="background:transparent;color:#1A1A18;border:1px solid rgba(26,26,24,0.15);border-radius:999px;letter-spacing:0.02em;">Secondary</button>
+                    <button class="px-4 py-1.5 rounded-full text-[8px] font-semibold text-white" style="background:linear-gradient(135deg,#C4973A,#D4AF37);border-radius:999px;letter-spacing:0.02em;box-shadow:0 2px 8px rgba(196,151,58,0.25);">Accent Gold</button>
                   </div>
                 </div>
-                <div class="p-3 rounded-xl bg-white border c49821">
-                  <div class="text-[9px] text-gray-400 mb-2">Input 输入框</div>
-                  <div class="space-y-1.5">
-                    <div class="h-5 rounded border text-[8px] px-2 c49845">Default State</div>
-                    <div class="h-5 rounded border text-[8px] px-2 c49863">Focused ✓</div>
-                    <div class="h-5 rounded border text-[8px] px-2 c49881">Error State ⚠</div>
-                  </div>
-                </div>
-                <div class="p-3 rounded-xl bg-white border c49929">
-                  <div class="text-[9px] text-gray-400 mb-2">Cards 卡片</div>
-                  <div class="h-14 rounded-xl border p-2 flex flex-col justify-between c49950">
-                    <div class="h-2 w-16 rounded bg-gray-100"></div>
-                    <div class="h-1.5 w-24 rounded bg-gray-100"></div>
-                  </div>
-                </div>
-                <div class="p-3 rounded-xl bg-white border c49994">
-                  <div class="text-[9px] text-gray-400 mb-2">Toggle 开关</div>
-                  <div class="flex items-center gap-3">
-                    <div class="w-7 h-4 rounded-full bg-gold/20 relative">
-                      <div class="w-3 h-3 rounded-full bg-gold absolute right-0.5 top-0.5"></div>
+
+                <!-- Input 输入框 -->
+                <div class="p-3.5 rounded-xl bg-white border border-gray-100 shadow-sm" style="border-radius:16px;">
+                  <div class="text-[9px] text-gray-400 mb-2.5 font-medium tracking-wide">Input 输入框</div>
+                  <div class="space-y-2">
+                    <div class="h-6 rounded-lg border text-[8px] px-2.5 flex items-center gap-1.5" style="background:#FAFAF8;border-color:#E5E2DD;border-radius:10px;color:#B5B0AA;">
+                      Default State
                     </div>
-                    <div class="w-7 h-4 rounded-full bg-gray-200 relative">
-                      <div class="w-3 h-3 rounded-full bg-white absolute left-0.5 top-0.5 shadow"></div>
+                    <div class="h-6 rounded-lg border text-[8px] px-2.5 flex items-center justify-between" style="background:#FEFCF5;border-color:#C4973A;border-radius:10px;color:#1A1A18;font-weight:500;box-shadow:0 0 0 2px rgba(196,151,58,0.08);">
+                      Focused ✓
+                    </div>
+                    <div class="h-6 rounded-lg border text-[8px] px-2.5 flex items-center justify-between" style="background:#FFF8F6;border-color:#E57373;border-radius:10px;color:#E53935;">
+                      Error State
+                      <span style="font-size:7px;">⚠</span>
                     </div>
                   </div>
                 </div>
-                <div class="col-span-2 p-3 rounded-xl bg-white border c50073">
-                  <div class="text-[9px] text-gray-400 mb-2">Modal 弹窗 / Toast 提示</div>
+
+                <!-- Cards 卡片 -->
+                <div class="p-3.5 rounded-xl bg-white border border-gray-100 shadow-sm" style="border-radius:16px;">
+                  <div class="text-[9px] text-gray-400 mb-2.5 font-medium tracking-wide">Cards 卡片</div>
+                  <div class="rounded-xl p-2.5 flex gap-2.5 items-start" style="background:linear-gradient(135deg,#FBF8F0,#FFF9ED);border:1px solid rgba(196,151,58,0.12);border-radius:14px;">
+                    <!-- Card thumbnail -->
+                    <div class="w-11 h-11 rounded-lg overflow-hidden flex-shrink-0" style="border-radius:10px;background:linear-gradient(135deg,#E8DCC8,#D4C4A8);">
+                      <img src="file:///C:/Users/34063/WorkBuddy/20260501101613/.workbuddy/artifacts/images/3.png" style="width:100%;height:100%;object-fit:cover;" alt="">
+                    </div>
+                    <div class="flex-1 min-w-0 flex flex-col justify-between py-0.5">
+                      <div>
+                        <span class="text-[7px] font-semibold inline-block px-1.5 py-0.5 rounded" style="color:#C4973A;background:rgba(196,151,58,0.08);">猫咪知识</span>
+                        <div class="text-[8px] font-semibold mt-1 truncate" style="color:#1A1A18;line-height:1.35;">猫咪为什么喜欢钻纸箱？</div>
+                      </div>
+                      <div class="text-[7px]" style="color:#B5B0AA;">行为学 · 阅读 3 分钟</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Toggle 开关 -->
+                <div class="p-3.5 rounded-xl bg-white border border-gray-100 shadow-sm" style="border-radius:16px;">
+                  <div class="text-[9px] text-gray-400 mb-2.5 font-medium tracking-wide">Toggle 开关</div>
+                  <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2">
+                      <div class="relative w-8 h-4.5 rounded-full cursor-pointer" style="background:linear-gradient(90deg,#C4973A,#D4AF37);border-radius:10px;width:30px;height:18px;">
+                        <div class="absolute right-0.5 top-0.5 w-3.5 h-3.5 rounded-full bg-white shadow-sm" style="width:14px;height:14px;border-radius:50%;box-shadow:0 1px 3px rgba(0,0,0,0.12);"></div>
+                      </div>
+                      <span class="text-[8px]" style="color:#1A1A18;">开启</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <div class="relative w-8 h-4.5 rounded-full cursor-pointer" style="background:#E5E2DD;border-radius:10px;width:30px;height:18px;">
+                        <div class="absolute left-0.5 top-0.5 w-3.5 h-3.5 rounded-full bg-white shadow-sm" style="width:14px;height:14px;border-radius:50%;box-shadow:0 1px 3px rgba(0,0,0,0.1);"></div>
+                      </div>
+                      <span class="text-[8px]" style="color:#B5B0AA;">关闭</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Modal 弹窗 / Toast 提示 -->
+                <div class="col-span-2 p-3.5 rounded-xl bg-white border border-gray-100 shadow-sm" style="border-radius:16px;">
+                  <div class="text-[9px] text-gray-400 mb-2.5 font-medium tracking-wide">Modal 弹窗 / Toast 提示</div>
                   <div class="flex gap-3 items-end">
-                    <div class="flex-1 h-16 rounded-lg border p-2 c50099">
-                      <div class="h-2 w-12 rounded bg-gray-100 mb-1.5"></div>
-                      <div class="h-1.5 w-full rounded bg-gray-100 mb-1"></div>
-                      <div class="h-1.5 w-3/4 rounded bg-gray-100"></div>
+                    <!-- Mini modal preview -->
+                    <div class="flex-1 rounded-xl p-3 relative" style="background:linear-gradient(to bottom,#FEFCF5,#FDFBF3);border:1px solid rgba(200,168,130,0.18);border-radius:14px;min-height:64px;">
+                      <div class="flex items-center justify-between mb-2">
+                        <span class="text-[8px] font-semibold" style="color:#1A1A18;">确认操作</span>
+                        <span class="text-[8px]" style="color:#B5B0AA;">✕</span>
+                      </div>
+                      <div class="h-1.5 w-3/4 rounded mb-2" style="background:rgba(196,151,58,0.06);border-radius:4px;"></div>
+                      <div class="flex gap-1.5 justify-end">
+                        <span class="px-2.5 py-1 text-[7px] rounded-md" style="background:rgba(26,26,24,0.05);color:#7A7570;border-radius:6px;">取消</span>
+                        <span class="px-2.5 py-1 text-[7px] font-medium text-white rounded-md" style="background:#1A1A18;border-radius:6px;">确认</span>
+                      </div>
                     </div>
-                    <div class="px-3 py-1.5 rounded-lg text-[8px] c50137">✅ Success Toast</div>
-                    <div class="px-3 py-1.5 rounded-lg text-[8px] c50156">⚠ Error Toast</div>
+                    <!-- Success Toast -->
+                    <div class="px-3 py-2 rounded-lg text-[8px] font-medium flex items-center gap-1.5 whitespace-nowrap" style="background:linear-gradient(135deg,#E8F5E9,#F1F8E9);color:#2E7D32;border:1px solid rgba(46,125,50,0.15);border-radius:10px;">
+                      <i class="fas fa-circle-check" style="font-size:9px;"></i> Success Toast
+                    </div>
+                    <!-- Error Toast -->
+                    <div class="px-3 py-2 rounded-lg text-[8px] font-medium flex items-center gap-1.5 whitespace-nowrap" style="background:linear-gradient(135deg,#FFEBEE,#FFEBEE);color:#C62828;border:1px solid rgba(198,40,40,0.15);border-radius:10px;">
+                      <i class="fas fa-triangle-exclamation" style="font-size:9px;"></i> Error Toast
+                    </div>
                   </div>
                 </div>
-              </div>
+
+              </div><!-- End grid -->
             </div>
           </div>
           <div class="p-6 pt-3">
